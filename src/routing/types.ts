@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 export interface IRoute{
     path: string,
-    component: React.Component | React.FC,
-    routes?: IRoute[]
+    element: ReactElement,
+    text: string
 }

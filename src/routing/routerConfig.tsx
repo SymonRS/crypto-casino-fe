@@ -1,16 +1,17 @@
-import {
-    BrowserRouter as Router,
-    Routes as Switch,
-    Route
-} from "react-router-dom";
+import { Homepage } from "../pages/Homepage/Homepage";
 import { IRoute } from "./types";
 
-const routes: IRoute[] = [
-    /* {
-      path: "/sandwiches",
-      component: Sandwiches
-    },
+export const routes: IRoute[] = [
     {
+      path: "/",
+      element: <Homepage/>,
+      text: "Homepage"
+    }/* ,
+    {
+      path: "/test",
+      element: <AnotherComponent/>
+    } */
+    /* {
       path: "/tacos",
       component: Tacos,
       routes: [
