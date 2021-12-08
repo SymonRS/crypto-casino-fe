@@ -1,17 +1,26 @@
 import React from "react";
+import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { routes } from "../routing/routerConfig";
 import { IRoute } from "../routing/types";
-import { NavbarWrapper } from "./styled/Navbar";
 
-export const Navbar: React.FC<INavbarProps> = (props:INavbarProps) => {
+export const Navbar: React.FC<INavbarProps> = ({img, routes, LogoUI, NavbarUI}) => {
     return(
-        <NavbarWrapper>
-            {routes.map((route, i) => { return <Link key={i} to={route.path}>{route.text}</Link> })}
-        </NavbarWrapper>
+            <Row>
+                <NavbarUI>
+                    <LogoUI>
+                        <img src={img} alt="Logo" style={{width: '100%'}}/>
+                    </LogoUI>
+                    <div>
+                        {routes.map((route, i) => { return <Link key={i} to={route.path}>{route.text}</Link> })}
+                    </div>
+                </NavbarUI>
+            </Row>
     )
 }
 
 interface INavbarProps{
-    routes: IRoute[]
+    routes: IRoute[],
+    LogoUI: any
+    NavbarUI: any
+    img: any
 }
