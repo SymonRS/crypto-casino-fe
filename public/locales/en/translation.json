@@ -1,3 +1,7 @@
 {
-    
+    "form": {
+        "tokenQtyPlaceholder": "Insert token quantity",
+        "firstDepositBonusTitle": "70 + 150 Free Spins",
+        "firstDepositBonusText": "Based on amount you will receive a different bonus that you can see in the Bonus Page"
+    }
 }
