@@ -1,0 +1,16 @@
+.numericForm{
+    border: none !important;
+    &:focus{
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
