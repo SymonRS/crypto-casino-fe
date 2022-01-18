@@ -1,8 +1,9 @@
-import { Card, Col, Form, Row } from "react-bootstrap";
+import { Card, Col, Form, Row, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import "./FormCard.scss";
 
-export const FormCard: React.FC<IFormCardProps> = ({ TextSelectUI }) => {
+
+export const FormCard: React.FC<IFormCardProps> = ({ TextSelectUI, callbackFn }) => {
 
     const {t} = useTranslation();
 
@@ -36,6 +37,7 @@ export const FormCard: React.FC<IFormCardProps> = ({ TextSelectUI }) => {
                 <Card.Text className="d-flex justify-content-center text-align-center">
                     {t('form.firstDepositBonusText')}
                 </Card.Text>
+                <Button onClick={callbackFn}>Connect wallet</Button>
             </Card.Body>
         </Card>
     )
@@ -43,4 +45,5 @@ export const FormCard: React.FC<IFormCardProps> = ({ TextSelectUI }) => {
 
 interface IFormCardProps{
     TextSelectUI: any
+    callbackFn: () => void
 }
