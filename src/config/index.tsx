@@ -1,0 +1,3 @@
+import { BASE_BSC_SCAN_URLS, BASE_URL, BASE_BSC_SCAN_URL } from "./urls";
+
+export { BASE_BSC_SCAN_URLS,  BASE_URL, BASE_BSC_SCAN_URL};
