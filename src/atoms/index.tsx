@@ -5,4 +5,9 @@ const userWalletAtom = atom<string>({
     default: ''
 });
 
-export { userWalletAtom };
+const walletConnectedAtom = atom<boolean>({
+    key: 'isWalletConnected',
+    default: false
+})
+
+export { userWalletAtom, walletConnectedAtom};
