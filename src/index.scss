@@ -18,3 +18,9 @@ code {
   height: 100vh;
   box-sizing: border-box;
 }
+
+.loading-spinner{
+  position: absolute;
+  top: calc(50vh - 50px);
+  left: calc(50vh - 50px);
+}

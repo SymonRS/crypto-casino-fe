@@ -2,15 +2,17 @@
 
 import { BASE_BSC_SCAN_URL, BASE_URL } from '../config/index'
 import { nodes } from './getRpcUrl'
+import { toast, ToastOptions } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 /**
  * Prompt the user to add BSC as a network on Metamask, or switch to BSC if the wallet is on a different network
  * @returns {boolean} true if the setup succeeded, false otherwise
  */
 export const setupNetwork = async () => {
-  const provider = window.ethereum
+  const provider = window.ethereum;
   if (provider) {
-    const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
+    const chainId = parseInt(process.env.REACT_APP_CHAIN_ID.substring(1,2), 10)
     try {
       await provider.request({
         method: 'wallet_addEthereumChain',
@@ -30,7 +32,8 @@ export const setupNetwork = async () => {
       })
       return true
     } catch (error) {
-      console.error('Failed to setup the network in Metamask:', error)
+      let errorMessage = error.code === -32602 ? 'Failed to switch network. Please switch to BSC manually' : 'Failed to setup the network in Metamask'; 
+      toast(errorMessage, {type: 'warning'} as ToastOptions)
       return false
     }
   } else {

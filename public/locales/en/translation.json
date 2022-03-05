@@ -2,6 +2,29 @@
     "form": {
         "tokenQtyPlaceholder": "Insert token quantity",
         "firstDepositBonusTitle": "70 + 150 Free Spins",
-        "firstDepositBonusText": "Based on amount you will receive a different bonus that you can see in the Bonus Page"
+        "firstDepositBonusText": "Based on amount you will receive a different bonus that you can see in the Bonus Page",
+        "signup": "Sign Up",
+        "email": "Email",
+        "username": "Username",
+        "password": "Password",
+        "confPassword": "Confirm password",
+        "nonDisclousureMessage": "We'll never share your email with anyone else"
+    },
+    "toast": {
+        "registration": {
+            "succeed": "Registration succeded",
+            "error": "Registration not succeeded"
+        }
+    },
+    "walletError": {
+        "unsupportedChainError": "Unsupported chain. Please switch to BSC and reconnect",
+        "noProviderFound": "No provider was found. Please install Metamask",
+        "authorizationError": "Please authorize to connect your wallet",
+        "unknownError": "Unknown error. Please contact our technical support",
+        "connectorError": "Unable to find connector" 
+    },
+    "walletMessage": {
+        "walletConnected": "Wallet succesfully connected",
+        "alreadyConnected": "Wallet already connected"
     }
 }

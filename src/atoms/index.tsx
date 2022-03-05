@@ -1,13 +1,17 @@
 import { atom } from "recoil"
 
-const userWalletAtom = atom<string>({
-    key: 'userWallet',
-    default: ''
-});
 
-const walletConnectedAtom = atom<boolean>({
-    key: 'isWalletConnected',
+
+const activeWalletAtom = atom<boolean>({
+    key: 'isActiveWallet', 
     default: false
 })
 
-export { userWalletAtom, walletConnectedAtom};
+const activateWalletAtom = atom({
+    key: 'activateWallet', 
+    default: null
+})
+
+
+
+export { activeWalletAtom, activateWalletAtom };

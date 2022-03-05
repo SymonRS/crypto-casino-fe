@@ -5,39 +5,36 @@ import {
   NoEthereumProviderError,
   UserRejectedRequestError as UserRejectedRequestErrorInjected,
 } from '@web3-react/injected-connector'
-/* import { UserRejectedRequestError as UserRejectedRequestErrorWalletConnect,
-    WalletConnectConnector
-} from '@web3-react/walletconnect-connector'; */
 import { useTranslation } from 'react-i18next';
 import { connectorLocalStorageKey } from '../wallet/config'
 import { ConnectorNames } from '../wallet/types';
 import { connectorsByName } from '../utils/web3React'
-import { setupNetwork } from '../utils/wallet';
-/* import useToast from 'hooks/useToast' *//* 
-import { useAppDispatch } from 'state' */
+import {toast, ToastOptions} from "react-toastify";
 import { clearUserWallet } from '../utils/clearUserWallet'
+import { globalToastTheme } from '../config';
 
 const useAuth = () => {
   const { t } = useTranslation()/* 
   const dispatch = useAppDispatch() */
-  const { chainId, activate, deactivate } = useWeb3React()
-  /* const { toastError } = useToast() */
+  const { chainId, activate, deactivate, active } = useWeb3React();
 
   const login = useCallback(
     (connectorID: ConnectorNames) => {
       const connector = connectorsByName[connectorID]
       if (connector) {
         activate(connector, async (error: Error) => {
-          if (error instanceof UnsupportedChainIdError) {
-            const hasSetup = await setupNetwork()
+          if (error instanceof UnsupportedChainIdError && !active) {
+            toast(t("walletError.unsupportedChainError"), { type: 'warning', theme: globalToastTheme } as ToastOptions)
+            
+            /* const hasSetup = await setupNetwork()
             if (hasSetup) {
               activate(connector)
-            }
+            } */
           } else {
             window.localStorage.removeItem(connectorLocalStorageKey)
             if (error instanceof NoEthereumProviderError || error instanceof NoBscProviderError) {
               console.log('No provider was found');
-              /* toastError(t('Provider Error'), t('No provider was found')) */
+              toast(t("walletError.noProviderFound", { type: 'error', theme: globalToastTheme }))
             } else if (
               error instanceof UserRejectedRequestErrorInjected /* ||
               error instanceof UserRejectedRequestErrorWalletConnect */
@@ -46,20 +43,22 @@ const useAuth = () => {
                 const walletConnector = connector as WalletConnectConnector
                 walletConnector.walletConnectProvider = null
               } */
-              /* toastError(t('Authorization Error'), t('Please authorize to access your account')) */
+              toast(t("walletError.authorizationError"), { type: 'error', theme: globalToastTheme } as ToastOptions)
               console.log('Please authorize to access your network')
             } else {
-              /* toastError(error.name, error.message) */
+              toast(t("walletError.unknownError"), { type: 'error', theme: globalToastTheme})
               console.log('Error name: ', error.name);
               console.log('Error message: ', error.message);
             }
           }
         })
+        toast(t("walletMessage.walletConnected"), { type: 'success' })
       } else {
-        /* toastError(t('Unable to find connector'), t('The connector config is wrong')) */
+        toast(t("walletError.connectorError"));
+        console.log('Unable to find connector');
       }
     },
-    [/* t,  */activate, /* toastError */],
+    [t, activate, chainId],
   )
 
   const logout = useCallback(() => {
@@ -67,7 +66,7 @@ const useAuth = () => {
     clearUserWallet()
   }, [deactivate, /* dispatch, */ chainId])
 
-  return { login, logout }
+  return { login, logout, active }
 }
 
 export default useAuth

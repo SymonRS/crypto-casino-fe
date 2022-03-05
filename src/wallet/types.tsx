@@ -15,3 +15,9 @@ export interface Config {
   connectorId: ConnectorNames;
   priority: number;
 }
+
+export interface IWalletInfo{
+  alias: string,
+  address: string,
+  blockchainId: number
+}

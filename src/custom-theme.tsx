@@ -6,6 +6,7 @@ export const myTheme: DefaultTheme = {
   colors: {
     main: 'red',
     secondary: 'green',
+    text: 'white'
   },
   navbar:{
   }
