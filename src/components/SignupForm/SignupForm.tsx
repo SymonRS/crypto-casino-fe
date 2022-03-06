@@ -55,6 +55,7 @@ const SignupForm: () => JSX.Element = () => {
                     toast(t('toast.registration.succeed'), { type: 'success', theme: globalToastTheme } );
                 },
                 error => {
+                    console.log('Error during registration: ', error);
                     setIsLoading(false);
                     toast(t('toast.registration.error'), {type: 'error', theme: globalToastTheme})
                 }

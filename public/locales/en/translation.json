@@ -4,6 +4,7 @@
         "firstDepositBonusTitle": "70 + 150 Free Spins",
         "firstDepositBonusText": "Based on amount you will receive a different bonus that you can see in the Bonus Page",
         "signup": "Sign Up",
+        "login": "Log in",
         "email": "Email",
         "username": "Username",
         "password": "Password",
@@ -14,6 +15,10 @@
         "registration": {
             "succeed": "Registration succeded",
             "error": "Registration not succeeded"
+        },
+        "login": {
+            "succeed": "Login succeded",
+            "error": "Wrong credentials"
         }
     },
     "walletError": {

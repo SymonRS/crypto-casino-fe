@@ -3,8 +3,7 @@ import { environment } from "../environment";
 
 
 const customAxios = axios.create({
-    baseURL: environment.bsUrl,
-    timeout: 5000
+    baseURL: environment.bsUrl
 })
 
 const requestHandler = request => {

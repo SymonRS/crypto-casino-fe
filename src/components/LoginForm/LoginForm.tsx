@@ -64,7 +64,7 @@ const LoginForm = ({orientation = 'horizontal'}: ILoginFormProps) => {
 
     return(
         <div className={`${orientation}-form`}>
-            <Form className="d-flex  justify-content-center align-items-center">
+            <Form as={'div'} className="d-flex  justify-content-center align-items-center">
                 <Form.Group className="formGroup" controlId="formBasicEmail">
                     <Form.Control  name={'email'} value={formState.email} onChange={e => handleInput(e)} type="email" placeholder={t('form.email')} />
                 </Form.Group>
@@ -74,7 +74,7 @@ const LoginForm = ({orientation = 'horizontal'}: ILoginFormProps) => {
                 </Form.Group>
 
                 <Button disabled={!isValidForm} onClick={e => handleLogin()} variant="primary" type="submit">
-                    Log In
+                    {t('form.login')}
                 </Button>
             </Form>
         </div>
