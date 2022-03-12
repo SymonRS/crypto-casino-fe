@@ -9,7 +9,23 @@
         "username": "Username",
         "password": "Password",
         "confPassword": "Confirm password",
-        "nonDisclousureMessage": "We'll never share your email with anyone else"
+        "nonDisclousureMessage": "We'll never share your email with anyone else",
+        "validationOkMessage":"Looks good!",
+        "passRequirements": "Your password must be 8-20 characters long, contain capital letters, numbers and special characters.",
+        "error":{
+            "noPassMatch": "Password doesn't match",
+            "passNoRequirements": "Password doesn't meet requirements",
+            "usernameMaxLength": "Username too long",
+            "usernameRequired": "Username is required",
+            "invalidMail": "Not a valid mail",
+            "emailRequired": "Email is required",
+            "emailMinLength": "Email too short",
+            "emailMaxLength": "Email too long",
+            "passMinLength": "Password too short",
+            "passMaxLength": "Password too long",
+            "passwordRequired": "Password is required",
+            "confPassRequired": "Confirm password is required"
+        }
     },
     "toast": {
         "registration": {
